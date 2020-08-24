@@ -1,0 +1,161 @@
+:root{
+    --white:#ffffff;
+    --beige:#F5F0DD;
+    --coal: #363636;
+    --leaf: #AAF584;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x:hidden;
+    margin: 0px;
+}
+
+/*PARADISE Navbar  */
+
+.paradise-trees {
+    background-color: var(--white);
+    padding:15px 30px;
+    text-align: center;
+}
+
+.paradise-trees p {
+    color: var(--leaf);
+    display: inline;
+    font-size:75px;
+    text-align: center;
+}
+
+.paradise-trees p:hover{
+    color:var(--coal);
+    cursor:pointer;
+}
+
+/* Navbar  */
+
+.nav-bar {
+    grid-template-columns:20% 80%;
+    padding: 38px;
+    display: grid;
+}
+
+.nav-bar .left-side h1{
+    color: var(--leaf);
+    position: relative;
+}
+
+.nav-bar .right-side img{
+    text-align:center;
+}
+
+.nav-bar .left-side img {
+    border-radius: 50%;
+    text-align: center;
+}
+
+
+/* STEP-1  */
+
+.paradise-trees-intro h1 {
+    position:relative;
+    font-size: 20px;
+    color: var(--coal);
+    padding-top: 20px;
+}
+
+.paradise-trees-intro p {
+    position:relative;
+    font-size: 20px;
+    background-color: var(--leaf);
+    color: var(--white);
+    padding: 10px;
+}
+
+/* STEP-2  */
+
+.paradise-trees-intro-2 p {
+    position:relative;
+    font-size: 20px;
+    color: var(--coal);
+    padding: 10px;
+}
+
+.paradise-trees-intro-2 h1 {
+    position:relative;
+    font-size: 20px;
+    color: var(--coal);
+    padding-top: 10px;
+}
+
+.paradise-trees-intro-2 .button-1{
+    transition:color 0.1s ease;
+    background-color:var(--leaf);
+    color:var(--beige);
+    display:inline;
+    border-radius:50px;
+    font-weight:bold;
+    padding:10px 25px;
+    font-size:60px;
+    text-align: center;
+    margin: 200px;
+}
+
+.paradise-trees-intro-2 .button-2{
+    transition:color 0.1s ease;
+    background-color:var(--leaf);
+    color:var(--beige);
+    display:inline;
+    border-radius:50px;
+    font-weight:bold;
+    padding:10px 25px;
+    font-size:60px;
+    margin: 20px;
+    text-align: center;
+}
+
+/* ABOUT  */
+
+.about p {
+    position:relative;
+    font-size: 20px;
+    background-color: var(--beige);
+    color: var(--coal);
+}
+
+.about h1 {
+    position:relative;
+    font-size: 20px;
+    color: var(--coal);
+}
+
+/* CONTACT  */
+
+.contact{
+    background-color: var(--white);
+}
+
+.contact h1{
+    position: relative;
+    color:var(--coal);
+    padding-top: 10px;
+}
+
+.contact .contact-grid{
+    grid-template-columns:33% 34% 33%;
+    text-align:center;
+    display:grid;
+}
+
+.contact-grid .contact-info img {
+    margin-bottom:50px;
+    height:200px;
+}
+
+/* Footer */
+
+.footer {
+    background-color:var(--coal);
+    text-align: center;
+    padding:15px 0;
+    color:white;
+}
