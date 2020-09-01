@@ -32,6 +32,11 @@ body{
 h1{
   font-family:BalsamiqSans;
 }
+@media only screen and (max-width:1000px){
+  h1{
+    text-align:center;
+  }
+}
 
 /* Navbar */
 .header {
@@ -63,6 +68,17 @@ h1{
 .header .section-links a:hover{
   border-color:var(--leaf);
 }
+@media only screen and (max-width:1000px){
+  .header{
+    box-shadow:none;
+  }
+  .header .section-links{
+    grid-template-columns:100%;
+  }
+  .header .section-links a{
+    border:none;
+  }
+}
 
 /* Navbar */
 .splash {
@@ -83,14 +99,13 @@ h1{
   border-radius: 50%;
   text-align: center;
 }
+@media only screen and (max-width:1000px){
+  .splash{
+    display:none;
+  }
+}
 
 /* Steps */
-/*.step-title{
-  font-family:"BalsamiqSans";
-  font-weight:bold;
-  font-size:40px;
-  display:inline;
-}*/
 .step1{
   grid-template-columns:50% 50%;
   display:grid;
@@ -107,6 +122,17 @@ h1{
   padding:10px 25px;
   font-weight:bold;
   font-size:60px;
+}
+@media only screen and (max-width:1000px){
+  .step1{
+    grid-template-columns:100%;
+  }
+  .step2 .buttons{
+    grid-template-columns:100%;
+  }
+  .step2 .buttons .offset{
+    margin-top:50px;
+  }
 }
 
 /* About */
@@ -135,6 +161,11 @@ h1{
 .contact a:hover{
   text-decoration:underline;
   cursor:pointer;
+}
+@media only screen and (max-width:1000px){
+  .contact .contact-grid{
+    grid-template-columns:100%;
+  }
 }
 
 /* Footer */
