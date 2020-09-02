@@ -36,6 +36,9 @@ h1{
   h1{
     text-align:center;
   }
+  .section{
+    padding:25px 5px;
+  }
 }
 
 /* Navbar */
@@ -121,9 +124,25 @@ h1{
   color:var(--white);
   padding:10px 25px;
   font-weight:bold;
-  font-size:60px;
+  font-size:50px;
+}
+.calculator-wrapper{
+  position:relative;
+  min-height:750px;
+}
+.calculator-wrapper iframe{
+  border:solid 2px var(--coal);
+  position:absolute;
+  height:80%;
+  width:80%;
+  left:10%;
+  top:10%;
 }
 @media only screen and (max-width:1000px){
+  .calculator-wrapper iframe{
+    width:100%;
+    left:0;
+  }
   .step1{
     grid-template-columns:100%;
   }
@@ -172,6 +191,14 @@ h1{
 .footer {
   background-color:var(--coal);
   text-align:center;
+  font-size:22px;
   padding:15px 0;
   color:white;
+}
+.footer a{
+  text-decoration:none;
+  color:var(--leaf);
+}
+.footer a:hover{
+  text-decoration:underline;
 }

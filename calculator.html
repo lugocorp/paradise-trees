@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_parent"/>
+</head>
+<body>
+  <div class="header">
+    <h1>Carbon Calculator</h1>
+  </div>
+
+  <!-- Entity select page -->
+  <div class="page" id="entity-select">
+    <p>What type of entity are you?</p>
+    <button class="entity" id="button-person">Individual</button>
+    <button class="entity" id="button-company">Company</button>
+    <div class="progress">
+      <div class="green"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Electricity usage page -->
+  <div class="page" id="electricity">
+    <p>About how much <span class="bold">electricity</span> do you use in a year?</p>
+    <div class="option">
+      <input type="radio" name="electricity" value="small" id="electricity-small"/>
+      <label for="electricity-small"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="electricity" value="medium" id="electricity-medium"/>
+      <label for="electricity-medium"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="electricity" value="large" id="electricity-large"/>
+      <label for="electricity-large"></label>
+    </div>
+    <div class="progress">
+      <div></div>
+      <div class="green"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Heating usage page -->
+  <div class="page" id="heating">
+    <p>About how much <span class="bold">heating</span> do you use in a year?</p>
+    <div class="option">
+      <input type="radio" name="heating" value="small" id="heating-small"/>
+      <label for="heating-small"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="heating" value="medium" id="heating-medium"/>
+      <label for="heating-medium"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="heating" value="large" id="heating-large"/>
+      <label for="heating-large"></label>
+    </div>
+    <div class="progress">
+      <div></div>
+      <div></div>
+      <div class="green"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Vehicle travel page -->
+  <div class="page" id="vehicle">
+    <p>About how many gallons of <span class="bold">gasoline</span> do you buy in a year?</p>
+    <div class="option">
+      <input type="radio" name="vehicle" value="small" id="vehicle-small"/>
+      <label for="vehicle-small"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="vehicle" value="medium" id="vehicle-medium"/>
+      <label for="vehicle-medium"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="vehicle" value="large" id="vehicle-large"/>
+      <label for="vehicle-large"></label>
+    </div>
+    <div class="progress">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="green"></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Air travel page -->
+  <div class="page" id="air">
+    <p>About how many miles do you <span class="bold">fly</span> in a year?</p>
+    <div class="option">
+      <input type="radio" name="air" value="small" id="air-small"/>
+      <label for="air-small"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="air" value="medium" id="air-medium"/>
+      <label for="air-medium"></label>
+    </div>
+    <div class="option">
+      <input type="radio" name="air" value="large" id="air-large"/>
+      <label for="air-large"></label>
+    </div>
+    <div class="progress">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="green"></div>
+      <div></div>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="page" id="results">
+    <p><span class="bold">Results:</span></p>
+    <p id="result-text"></p>
+    <div class="progress">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div class="green"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Developed by <a href="http://lugocorp.net">LugoCorp</a>
+  </div>
+
+</body>
+<script type="text/javascript">
+
+// Values for math and display
+let type="person";
+let electricity=0;
+let heating=0;
+let vehicle=0;
+let air=0;
+let amounts={
+  "company":{
+    "electricity":[
+      [100,200],
+      [200,300],
+      [300,400]
+    ],
+    "heating":[
+      [100,200],
+      [200,300],
+      [300,400]
+    ],
+    "vehicle":[
+      [100,200],
+      [200,300],
+      [300,400]
+    ],
+    "air":[
+      [100,200],
+      [200,300],
+      [300,400]
+    ],
+  },
+  "person":{
+    "electricity":[
+      [1,2],
+      [2,3],
+      [3,4]
+    ],
+    "heating":[
+      [1,2],
+      [2,3],
+      [3,4]
+    ],
+    "vehicle":[
+      [1,2],
+      [2,3],
+      [3,4]
+    ],
+    "air":[
+      [1,2],
+      [2,3],
+      [3,4]
+    ],
+  }
+}
+let units={
+  "electricity":"kWh",
+  "heating":"CCF",
+  "vehicle":"gallons",
+  "air":"miles",
+}
+
+// Helper functions
+function switch_page(id){
+  let pages=document.getElementsByClassName("page");
+  for(var a=0;a<pages.length;a++){
+    pages[a].style.display=(pages[a].id==id)?"block":"none";
+  }
+}
+function set_values(id){
+  let values=amounts[type][id];
+  let labels=document.querySelectorAll(`#${id} .option label`);
+  for(var a=0;a<labels.length;a++){
+    labels[a].innerHTML=`${values[a][0]} - ${values[a][1]} ${units[id]}`;
+  }
+}
+function add_triggers(id,next,set_var){
+  let inputs=document.querySelectorAll(`#${id} .option input`);
+  for(var a=0;a<inputs.length;a++){
+    const a1=a;
+    inputs[a].onclick=function(){
+      setTimeout(function(){
+        set_var((amounts[type][id][a1][0]+amounts[type][id][a1][1])/2);
+        set_values(next);
+        switch_page(next);
+      },250);
+    }
+  }
+}
+function round(x){
+  return Math.floor(x*100)/100;
+}
+
+// Options
+document.getElementById("button-person").onclick=function(){
+  type="person";
+  set_values("electricity");
+  switch_page("electricity");
+}
+document.getElementById("button-company").onclick=function(){
+  type="company";
+  set_values("electricity");
+  switch_page("electricity");
+}
+add_triggers("electricity","heating",amount => electricity=amount);
+add_triggers("heating","vehicle",amount => heating=amount);
+add_triggers("vehicle","air",amount => vehicle=amount);
+add_triggers("air","results",function(amount){
+  air=amount;
+  let pounds=(0.947*electricity)+(11.71*heating)+(19.59*vehicle)+(0.187393*air);
+  let tons=pounds/2000;
+  let cost=40*tons;
+  document.getElementById("result-text").innerHTML=`${round(pounds)} lbs CO<sub>2</sub><br>${round(tons)} tons CO<sub>2</sub><br>Cost: $${round(cost)}`;
+});
+
+// Back buttons
+
+</script>
+<style type="text/css">
+
+:root{
+  --white:#ffffff;
+  --coal: #363636;
+  --main: #AAF584;
+  position:relative;
+  height:100%;
+}
+body{
+  background-color:var(--white);
+  font-family:sans-serif;
+  position:relative;
+  color:var(--coal);
+  overflow:hidden;
+  height:100%;
+  padding:0;
+  margin:0;
+}
+
+/* Header */
+.header{
+  background-color:var(--main);
+  color:var(--white);
+  margin-bottom:25px;
+  padding:10px 25px;
+}
+.header h1{
+  text-align:center;
+  font-size:35px;
+  margin:0;
+}
+
+/* Progress bar */
+.progress{
+  grid-template-columns:16% 17% 17% 17% 17% 16%;
+  position:absolute;
+  display:grid;
+  bottom:10px;
+  width:40%;
+  left:30%;
+}
+.progress > div{
+  background-color:var(--coal);
+  border:solid 2px var(--coal);
+  left:calc(50% - 5px);
+  border-radius:7px;
+  position:relative;
+  height:10px;
+  width:10px;
+}
+.progress .green{
+  background-color:var(--main);
+}
+
+/* Quiz */
+.page{
+  height:calc(100% - 110px);
+  position:relative;
+  display:none;
+}
+.page p{
+  text-align:center;
+  padding-top:35px;
+  margin:45px 12%;
+  margin-top:0;
+}
+.page p .bold{
+  /*color:var(--main);*/
+  font-weight:bold;
+}
+#entity-select{
+  display:block;
+}
+.entity{
+  background-color:var(--main);
+  width:calc(100% - 30px);
+  color:var(--white);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+  font-size:25px;
+  padding:15px 0;
+  margin:15px 0;
+  display:block;
+  border:none;
+  left:15px;
+}
+.entity:hover{
+  cursor:pointer;
+}
+.option{
+  border:solid 2px var(--main);
+  width:calc(100% - 70px);
+  position:relative;
+  font-weight:bold;
+  padding:5px 15px;
+  margin:15px 0;
+  left:15px;
+}
+
+/* Footer */
+.footer{
+  background-color:var(--coal);
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  font-size:15px;
+  padding:5px 0;
+}
+.footer a{
+  text-decoration:none;
+  color:var(--main);
+}
+.footer a:hover{
+  text-decoration:underline;
+}
+
+</style>
+</html>
