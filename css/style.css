@@ -1,5 +1,6 @@
 /* General */
 :root{
+  --dark-leaf:#94d474;
   --white:#ffffff;
   --beige:#F5F0DD;
   --coal: #363636;
@@ -8,18 +9,46 @@
 body{
   font-family:NotoSansJP;
   overflow-x:hidden;
+  color:var(--coal);
+  font-size:18px;
   margin:0px;
+}
+h1{
+  font-family:BalsamiqSans;
 }
 .container{
   position:relative;
 }
 .section{
-  color:var(--coal);
   padding:25px 5%;
-  font-size:18px;
+}
+.center{
+  text-align:center;
+}
+.fade-in{
+  opacity:25%;
+}
+.img-left{
+  grid-template-columns:40% 60%;
+  display:grid;
+}
+.img-left div:not(.image){
+  padding:0 5%;
+}
+.img-left .image{
+  background-position-x:50%;
+  background-position-y:50%;
+  background-size:cover;
+  min-height:400px;
+}
+.thin{
+  padding:25px 10%;
 }
 .green{
   background-color:var(--leaf);
+}
+.beige{
+  background-color:var(--beige);
 }
 @font-face{
   font-family:"NotoSansJP";
@@ -29,9 +58,6 @@ body{
   font-family:"BalsamiqSans";
   src:url("../fonts/BalsamiqSans-Regular.ttf");
 }
-h1{
-  font-family:BalsamiqSans;
-}
 @media only screen and (max-width:1000px){
   h1{
     text-align:center;
@@ -39,10 +65,13 @@ h1{
   .section{
     padding:25px 5px;
   }
+  .img-left{
+    grid-template-columns:100%;
+  }
 }
 
 /* Navbar */
-.header {
+/*.header {
     background-color: var(--white);
     box-shadow:0 0 6px gray;
     text-align:center;
@@ -52,8 +81,8 @@ h1{
     z-index:1;
 }
 .header h1 {
-    color: var(--leaf);
     text-align:center;
+    color:var(--leaf);
     font-size:75px;
     display:inline;
 }
@@ -71,8 +100,8 @@ h1{
 .header .section-links a:hover{
   border-color:var(--leaf);
 }
-@media only screen and (max-width:1000px){
-  .header{
+@media only screen and (max-width:1000px){*/
+  /*.header{
     box-shadow:none;
   }
   .header h1{
@@ -83,20 +112,52 @@ h1{
   }
   .header .section-links a{
     border:none;
+  }*/
+  /*.header{
+    display:none;
   }
-}
+}*/
 
-/* Navbar */
-.splash {
-  background-image:url("../images/madagascar1.jpg");
-  grid-template-columns:20% 80%;
-  background-position-y:100%;
+/* Splash */
+.splash,.alt-splash{
+  background-color:rgba(0,0,0,0.3);
+  background-blend-mode:multiply;
+  background-position-y:50%;
   background-size:cover;
   position:relative;
-  min-height:450px;
-  display:grid;
+  color:var(--white);
 }
-.splash .splash-label{
+.alt-splash{
+  text-align:center;
+  padding:25px 0;
+}
+.alt-splash h1{
+  font-size:80px;
+}
+.splash{
+  min-height:450px;
+}
+.splash > div{
+  transform:translateY(-50%);
+  text-align:center;
+  position:absolute;
+  width:100%;
+  top:50%;
+  left:0;
+}
+.splash h1{
+  transform:translateY(50%);
+  display:inline-block;
+  padding-left:25px;
+  position:relative;
+  font-size:80px;
+  top:-100px;
+  margin:0;
+}
+.splash img{
+  border-radius:50%;
+}
+/*.splash .splash-label{
   background-color:rgba(1,1,1,0.6);
   color:var(--white);
   text-align:center;
@@ -106,10 +167,59 @@ h1{
 .splash .splash-label img {
   border-radius: 50%;
   text-align: center;
+}*/
+.mobile-splash{
+  background-color:rgba(0,0,0,.3);
+  background-blend-mode:multiply;
+  grid-template-columns:60% 40%;
+  background-position-y:0%;
+  background-size:cover;
+  color:var(--white);
+  text-align:center;
+  position:relative;
+  padding:25px 0;
+  display:none;
+}
+.mobile-splash img{
+  border-radius:50%;
+  width:120px;
 }
 @media only screen and (max-width:1000px){
+  .mobile-splash{
+    display:grid;
+  }
   .splash{
     display:none;
+  }
+}
+
+/* Buttons */
+.buttons{
+  grid-template-columns:50% 50%;
+  text-align:center;
+  margin-top:50px;
+  cursor:pointer;
+  display:grid;
+}
+.buttons .offset{
+  transition:background-color 0.1s ease;
+  background-color:var(--leaf);
+  display:inline-block;
+  color:var(--white);
+  padding:10px 25px;
+  font-weight:bold;
+  font-size:50px;
+}
+.buttons .offset:hover{
+  background-color:var(--dark-leaf);
+}
+@media only screen and (max-width:1000px){
+  .buttons{
+    grid-template-columns:100%;
+  }
+  .buttons .offset{
+    margin-top:15px;
+    min-width:80%;
   }
 }
 
@@ -118,7 +228,7 @@ h1{
   grid-template-columns:50% 50%;
   display:grid;
 }
-.step2 .buttons{
+/*.step2 .buttons{
   grid-template-columns:50% 50%;
   text-align:center;
   display:grid;
@@ -130,7 +240,7 @@ h1{
   padding:10px 25px;
   font-weight:bold;
   font-size:50px;
-}
+}*/
 .calculator-wrapper{
   position:relative;
   min-height:750px;
@@ -157,11 +267,6 @@ h1{
   .step2 .buttons .offset{
     margin-top:50px;
   }
-}
-
-/* About */
-.about{
-  background-color: var(--beige);
 }
 
 /* Contact */
@@ -196,7 +301,6 @@ h1{
 .footer {
   background-color:var(--coal);
   text-align:center;
-  font-size:22px;
   padding:15px 0;
   color:white;
 }
