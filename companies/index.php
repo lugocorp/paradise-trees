@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Paradise Trees - Companies</title>
+  <?php $DIR="..";?>
   <?php include("../components/head.php");?>
 </head>
 <body>
