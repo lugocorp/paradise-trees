@@ -8,7 +8,7 @@
   <div class="container">
 
     <!-- Splash -->
-    <div class="alt-splash" style="background-image:url('images/madagascar1.jpg')">
+    <div class="alt-splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <h1>Individuals</h1>
     </div>
 
@@ -24,7 +24,7 @@
         </p>
       </div>
       <div class="calculator-wrapper">
-        <iframe src="calculator.html"></iframe>
+        <iframe src="<?php echo($DIR);?>/calculator.html"></iframe>
       </div>
     </div>
     <div class="section step2">

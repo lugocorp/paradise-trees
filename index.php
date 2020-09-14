@@ -8,16 +8,16 @@
   <div class="container">
 
     <!-- Splash -->
-    <div class="splash" style="background-image:url('images/madagascar1.jpg')">
+    <div class="splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <div class="fade-in">
-        <img src="images/paradise-icon.jpg"/>
+        <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
         <h1>PARADISE TREES</h1>
         <p>
           Clean your environmental impact by supporting green projects in Madagascar
         </p>
       </div>
     </div>
-    <div class="mobile-splash" style="background-image:url('images/madagascar1.jpg')">
+    <div class="mobile-splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <div class="fade-in">
         <h1>PARADISE TREES</h1>
         <p>
@@ -25,7 +25,7 @@
         </p>
       </div>
       <div class="fade-in">
-        <img src="images/paradise-icon.jpg"/>
+        <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
       </div>
     </div>
 
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="green img-left">
-      <div class="image" style="background-image:url(images/madagascar2.jpg)"></div>
+      <div class="image" style="background-image:url('<?php echo($DIR);?>/images/madagascar2.jpg')"></div>
       <div>
         <h1>Why Madagascar?</h1>
         <p>
