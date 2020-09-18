@@ -157,21 +157,10 @@ h1{
 .splash img{
   border-radius:50%;
 }
-/*.splash .splash-label{
-  background-color:rgba(1,1,1,0.6);
-  color:var(--white);
-  text-align:center;
-  font-weight:bold;
-  padding:15px;
-}
-.splash .splash-label img {
-  border-radius: 50%;
-  text-align: center;
-}*/
 .mobile-splash{
   background-color:rgba(0,0,0,.3);
   background-blend-mode:multiply;
-  grid-template-columns:60% 40%;
+  grid-template-columns:40% 60%;
   background-position-y:0%;
   background-size:cover;
   color:var(--white);
@@ -198,7 +187,6 @@ h1{
   grid-template-columns:50% 50%;
   text-align:center;
   margin-top:50px;
-  cursor:pointer;
   display:grid;
 }
 .buttons .offset{
@@ -209,6 +197,7 @@ h1{
   padding:10px 25px;
   font-weight:bold;
   font-size:50px;
+  cursor:pointer;
 }
 .buttons .offset:hover{
   background-color:var(--dark-leaf);

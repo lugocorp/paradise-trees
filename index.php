@@ -13,32 +13,29 @@
         <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
         <h1>PARADISE TREES</h1>
         <p>
-          Clean your environmental impact by supporting green projects in Madagascar
+          Clean Your Environmental Impact by Supporting Green Projects in Madagascar
         </p>
       </div>
     </div>
     <div class="mobile-splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <div class="fade-in">
-        <h1>PARADISE TREES</h1>
-        <p>
-          Clean your environmental impact by supporting green projects in Madagascar
-        </p>
+        <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
       </div>
       <div class="fade-in">
-        <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
+        <h1>PARADISE TREES</h1>
+        <p>
+          Clean Your Environmental Impact by Supporting Green Projects in Madagascar
+        </p>
       </div>
     </div>
 
     <!-- Sections -->
     <div class="section thin">
       <p>
-        Carbon is an important topic in today's society and economy. Every business and individual needs to think about their environmental impact and how to reduce and manage their carbon footprint. It's become a social responsibility and good business sense to reduce and offset.
+        At Paradise Trees we believe addressing your environmental impact should be simple. That's why we have created this platform which provides direct access to emissions reducing projects throughout Madagascar. As an individual or company, you can follow our simple two-step process which allows you to; 1) Quantify your environmental impact in terms of a carbon footprint and 2) Offset that footprint through tree planting or fire protecting projects.
       </p>
       <p>
-        Paradise Trees is a campaign run by a nonprofit based in Washington, DC. The goal of this campaign is to provide individuals and businesses with carbon offsetting through emissions reducing projects in Madagascar. It is encouraged for everyone to address their environmental impact, and there are benefits for both businesses and individuals who offset their footprint.
-      </p>
-      <p>
-        Find out below how you can help offset your carbon footprint.
+        Addressing your environmental impact is easy and creates benefits for everyone involved. To learn more about our two-step process as well as more information on carbon, select one of the options below.
       </p>
       <div class="buttons">
         <div>
@@ -54,19 +51,14 @@
       <div>
         <h1>Why Madagascar?</h1>
         <p>
-          Paragraphs here we are Madagascaran maybe something about unique local species and how it was largely unaffected by colonization.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          Madagascar is one of the most unique places on earth due to its isolation as an island on the east coast of Africa. It is home to more than 200,000 animal, plant and insect species, nearly 80 percent of them being endemic; meaning they exit nowhere else. Aside from its rich biodiversity, the people throughout the land are mainly villagers with preserved cultures. To visit Madagascar is like coming to a different planet! And when we visited, we were grateful to have created relationships with some of the most down-to-earth projects in Madagascar largely run by the people of Madagascar! Their goals are grounded in environmental protection, reforestation and community development projects over 706 square kilometers of land. Being introduced to such a large opportunity to contribute to positive change brought life to our platform, which was created to allow anyone from anywhere in the world to directly get involved.
         </p>
       </div>
     </div>
     <div class="section thin">
-      <h1>Our Impact</h1>
+      <h1>Your Impact</h1>
       <p>
-        Paragraphs here about how we're making a difference in the local Madagascar community. Talk about how we're funding an irrigation system, planting trees and preventing them from being burned for coal production.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-      <p>
-        Help us make an impact by visiting the links below
+        Each tree you plant and even the slightest support towards the 'Rainbow' project creates more than just a positive environmental impact and cleaning of your carbon footprint. Any support significantly increases job opportunities for local villagers which leads to an improvement of their overall community. They learn how to plant, protect trees, and even get involved in our sustainable agriculture education; All of which directly improve their communities and future. That is why your impact reaches all throughout Madagascar!
       </p>
       <div class="buttons">
         <div><div class="offset">Buy a Tree</div></div>

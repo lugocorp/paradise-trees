@@ -1,0 +1,171 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <base target="_parent"/>
+</head>
+<body>
+  <div class="header">
+    <h1>Carbon Calculator</h1>
+  </div>
+
+  <!-- Entity select page -->
+  <!--<div class="page" id="entity-select">
+    <p>What type of entity are you?</p>
+    <button class="entity" id="button-individual" onclick="switch_page('individual-')">Individual</button>
+    <button class="entity" id="button-company" onclick="switch_page('company-')">Company</button>
+  </div>-->
+
+  <div class="page" id="individual-phone_hours"><p>How many hours do you spend on your <b>phone</b> in a day?</p><div class="option"><input type="radio" name="phone_hours" value="0" id="phone_hours-0" onclick="set_value('phone_hours',1.5,'individual-phone_years')"/><label for="phone_hours-0">1 - 2 hours</label></div><div class="option"><input type="radio" name="phone_hours" value="1" id="phone_hours-1" onclick="set_value('phone_hours',2.5,'individual-phone_years')"/><label for="phone_hours-1">2 - 3 hours</label></div><div class="option"><input type="radio" name="phone_hours" value="2" id="phone_hours-2" onclick="set_value('phone_hours',3.5,'individual-phone_years')"/><label for="phone_hours-2">3 - 4 hours</label></div><div class="progress"><div class="active"></div><div></div></div></div><div class="page" id="individual-phone_years"><p>How many <b>years</b> have you had your phone for?</p><div class="option"><input type="radio" name="phone_years" value="0" id="phone_years-0" onclick="set_value('phone_years',values['phone_hours']*1.5*2799.55,'individual-results');calculate('individual-results-text')"/><label for="phone_years-0">1 - 2 years</label></div><div class="option"><input type="radio" name="phone_years" value="1" id="phone_years-1" onclick="set_value('phone_years',values['phone_hours']*2.5*2799.55,'individual-results');calculate('individual-results-text')"/><label for="phone_years-1">2 - 3 years</label></div><div class="option"><input type="radio" name="phone_years" value="2" id="phone_years-2" onclick="set_value('phone_years',values['phone_hours']*3.5*2799.55,'individual-results');calculate('individual-results-text')"/><label for="phone_years-2">3 - 4 years</label></div><div class="progress"><div></div><div class="active"></div></div></div><div class="page" id="individual-results"><p><span class="bold">Results:</span></p><p id="individual-results-text"></p></div>
+  <!-- Footer -->
+  <div class="footer">
+    Developed by <a href="http://lugocorp.net">LugoCorp</a>
+  </div>
+
+</body>
+<style type="text/css">
+
+:root{
+  --white:#ffffff;
+  --coal: #363636;
+  --main: #AAF584;
+  position:relative;
+  height:100%;
+}
+body{
+  background-color:var(--white);
+  font-family:sans-serif;
+  position:relative;
+  color:var(--coal);
+  overflow:hidden;
+  height:100%;
+  padding:0;
+  margin:0;
+}
+
+/* Header */
+.header{
+  background-color:var(--main);
+  color:var(--white);
+  margin-bottom:25px;
+  padding:10px 25px;
+}
+.header h1{
+  text-align:center;
+  font-size:35px;
+  margin:0;
+}
+
+/* Progress bar */
+.progress{
+  transform:translateX(-50%);
+  position:absolute;
+  bottom:10px;
+  left:50%;
+}
+.progress > div{
+  background-color:var(--coal);
+  border:solid 2px var(--coal);
+  display:inline-block;
+  border-radius:7px;
+  position:relative;
+  margin:0 25px;
+  height:10px;
+  width:10px;
+}
+.progress .active{
+  background-color:var(--main);
+}
+
+/* Quiz */
+.page{
+  height:calc(100% - 110px);
+  position:relative;
+  display:none;
+}
+.page p{
+  text-align:center;
+  padding-top:35px;
+  margin:45px 12%;
+  margin-top:0;
+}
+.page p .bold{
+  font-weight:bold;
+}
+body div.page{
+  display:block;
+}
+.entity{
+  background-color:var(--main);
+  width:calc(100% - 30px);
+  color:var(--white);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+  font-size:25px;
+  padding:15px 0;
+  margin:15px 0;
+  display:block;
+  border:none;
+  left:15px;
+}
+.entity:hover{
+  cursor:pointer;
+}
+.option{
+  border:solid 2px var(--main);
+  width:calc(100% - 70px);
+  position:relative;
+  font-weight:bold;
+  padding:5px 15px;
+  margin:15px 0;
+  left:15px;
+}
+
+/* Footer */
+.footer{
+  background-color:var(--coal);
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  font-size:15px;
+  padding:5px 0;
+}
+.footer a{
+  text-decoration:none;
+  color:var(--main);
+}
+.footer a:hover{
+  text-decoration:underline;
+}
+
+</style>
+<script type="text/javascript">
+
+let values={};
+
+function switch_page(id){
+  let pages=document.getElementsByClassName("page");
+  for(var a=0;a<pages.length;a++){
+    pages[a].style.display=(pages[a].id==id)?"block":"none";
+  }
+}
+function set_value(k,v,id){
+  values[k]=v;
+  setTimeout(function(){
+    switch_page(id);
+  },250);
+}
+function calculate(id){
+  let lbs=round(Object.keys(values).map(x => values[x]).reduce((x,y) => x+y));
+  let tons=round(lbs/2000);
+  let dollars=round(tons*13);
+  document.getElementById(id).innerHTML=`${lbs} pounds C0<sub>2</sub><br>${tons} tons C0<sub>2</sub><br>$${dollars} to offset`;
+}
+function round(x){
+  return Math.floor(x*100)/100;
+}
+
+</script>
+</html>

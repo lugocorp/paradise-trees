@@ -10,6 +10,7 @@
     <!-- Splash -->
     <div class="alt-splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <h1>Companies</h1>
+      <p>Take Action For Your Company's Carbon Emissions</p>
     </div>
 
     <!-- Sections -->
@@ -24,7 +25,7 @@
         </p>
       </div>
       <div class="calculator-wrapper">
-        <iframe src="<?php echo($DIR);?>/calculator.html"></iframe>
+        <iframe src="<?php echo($DIR);?>/calc_companies.html"></iframe>
       </div>
     </div>
     <div class="section step2">
