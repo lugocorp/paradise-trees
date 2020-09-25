@@ -40,8 +40,8 @@
         It is also possible to purchase carbon credits and hold on to them. This stops people, organizations and countries from using them. Another option is to invest or donate to an organization which develops renewable and sustainable technologies.
       </p>
       <div class="buttons">
-        <div><div class="offset">Buy a Tree</div></div>
-        <div><div class="offset">Support Rainbow</div></div>
+        <div><a class="offset" href="donate#trees">Buy a Tree</a></div>
+        <div><a class="offset" href="donate#rainbow">Support Rainbow</a></div>
       </div>
     </div>
     <?php include("../components/footer.php");?>

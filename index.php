@@ -61,8 +61,8 @@
         Each tree you plant and even the slightest support towards the 'Rainbow' project creates more than just a positive environmental impact and cleaning of your carbon footprint. Any support significantly increases job opportunities for local villagers which leads to an improvement of their overall community. They learn how to plant, protect trees, and even get involved in our sustainable agriculture education; All of which directly improve their communities and future. That is why your impact reaches all throughout Madagascar!
       </p>
       <div class="buttons">
-        <div><div class="offset">Buy a Tree</div></div>
-        <div><div class="offset">Support Rainbow</div></div>
+        <div><a class="offset" href="donate#trees">Buy a Tree</a></div>
+        <div><a class="offset" href="donate#rainbow">Support Rainbow</a></div>
       </div>
     </div>
     <div class="section green">

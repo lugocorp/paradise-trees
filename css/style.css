@@ -192,6 +192,7 @@ h1{
 .buttons .offset{
   transition:background-color 0.1s ease;
   background-color:var(--leaf);
+  text-decoration:none;
   display:inline-block;
   color:var(--white);
   padding:10px 25px;
@@ -217,19 +218,6 @@ h1{
   grid-template-columns:50% 50%;
   display:grid;
 }
-/*.step2 .buttons{
-  grid-template-columns:50% 50%;
-  text-align:center;
-  display:grid;
-}
-.step2 .buttons .offset{
-  background-color:var(--leaf);
-  display:inline-block;
-  color:var(--white);
-  padding:10px 25px;
-  font-weight:bold;
-  font-size:50px;
-}*/
 .calculator-wrapper{
   position:relative;
   min-height:750px;
@@ -255,6 +243,45 @@ h1{
   }
   .step2 .buttons .offset{
     margin-top:50px;
+  }
+}
+
+/* Trees Grid */
+.trees-grid{
+  grid-template-columns:calc(33% - 5px) calc(34% - 10px) calc(33% - 5px);
+  grid-column-gap:10px;
+  display:grid;
+}
+.trees-grid > div{
+  text-align:center;
+  margin-top:80px;
+}
+.trees-grid .image{
+  background-position:center center;
+  background-size:cover;
+  position:relative;
+  height:500px;
+  width:80%;
+  left:10%;
+}
+.trees-grid h2{
+  margin-bottom:0;
+}
+.trees-grid p {
+  margin-top:0;
+}
+@media only screen and (max-width:1000px){
+  .trees-grid{
+    grid-template-columns:50% 50%;
+  }
+  .trees-grid .image{
+    width:calc(100% - 10px);
+    left:5px;
+  }
+}
+@media only screen and (max-width:750px){
+  .trees-grid{
+    grid-template-columns:100%;
   }
 }
 
