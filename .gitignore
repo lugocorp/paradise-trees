@@ -1,0 +1,10 @@
+wp-admin
+wp-includes
+wp-content/*
+!wp-content/themes
+wp-content/themes/*
+!wp-content/themes/paradise-trees
+readme.html
+license.txt
+xmlrpc.php
+wp-*.php
