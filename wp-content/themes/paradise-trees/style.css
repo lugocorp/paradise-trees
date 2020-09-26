@@ -1,3 +1,7 @@
+/*
+Theme Name: Paradise Trees
+*/
+
 /* General */
 :root{
   --dark-leaf:#94d474;
@@ -49,14 +53,6 @@ h1{
 }
 .beige{
   background-color:var(--beige);
-}
-@font-face{
-  font-family:"NotoSansJP";
-  src:url("../fonts/NotoSansJP-Regular.otf");
-}
-@font-face{
-  font-family:"BalsamiqSans";
-  src:url("../fonts/BalsamiqSans-Regular.ttf");
 }
 @media only screen and (max-width:1000px){
   h1{

@@ -1,7 +1,8 @@
+<?php /* Template Name: Main */ ?>
 <html>
 <head>
   <title>Paradise Trees</title>
-  <?php $DIR=".";?>
+  <?php $DIR=get_template_directory_uri();?>
   <?php include("components/head.php");?>
 </head>
 <body>
@@ -73,25 +74,25 @@
       <div class="contact-grid">
         <div>
           <a class="contact-info" href="mailto:1borna@gmail.com">
-            <img src="images/mail.svg"/>
+            <img src="<?php echo($DIR);?>/images/mail.svg"/>
             <p>Email</p>
           </a>
         </div>
         <div>
           <a class="contact-info" href="https://www.instagram.com/paradise.trees/">
-            <img src="images/instagram.svg"/>
+            <img src="<?php echo($DIR);?>/images/instagram.svg"/>
             <p>Instagram</p>
           </a>
         </div>
         <div>
           <a class="contact-info" href="http://lugocorp.net">
-            <img src="images/facebook.svg"/>
+            <img src="<?php echo($DIR);?>/images/facebook.svg"/>
             <p>Facebook</p>
           </a>
         </div>
       </div>
     </div>
-    <?php include("components/footer.php");?>
+    <?php include($DIR."/components/footer.php");?>
   </div>
 </body>
 </html>
