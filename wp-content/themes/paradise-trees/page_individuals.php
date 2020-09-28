@@ -1,8 +1,9 @@
+<?php /* Template Name: Individuals */ ?>
 <html>
 <head>
   <title>Paradise Trees - Individuals</title>
-  <?php $DIR="..";?>
-  <?php include("../components/head.php");?>
+  <?php $DIR=get_template_directory_uri();?>
+  <?php include("components/head.php");?>
 </head>
 <body>
   <div class="container">
@@ -25,7 +26,7 @@
         </p>
       </div>
       <div class="calculator-wrapper">
-        <iframe src="<?php echo($DIR);?>/calc_individuals.html"></iframe>
+        <iframe src="<?php echo($DIR);?>/calculators/individuals.html"></iframe>
       </div>
     </div>
     <div class="section step2">
@@ -44,7 +45,7 @@
         <div><a class="offset" href="donate#rainbow">Support Rainbow</a></div>
       </div>
     </div>
-    <?php include("../components/footer.php");?>
+    <?php include("components/footer.php");?>
   </div>
 </body>
 </html>

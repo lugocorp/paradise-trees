@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<?php /* Template Name: Donate */ ?>
 <html>
 <head>
   <title>Paradise Trees - Donate</title>
-  <?php $DIR="..";?>
-  <?php include("../components/head.php");?>
+  <?php $DIR=get_template_directory_uri();?>
+  <?php include("components/head.php");?>
 </head>
 <body>
   <div class="container">
@@ -73,7 +73,7 @@
         </div>
       </div>
     </div>
-    <?php include("../components/footer.php");?>
+    <?php include("components/footer.php");?>
   </div>
 </body>
 </html>

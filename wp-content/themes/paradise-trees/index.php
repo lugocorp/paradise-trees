@@ -78,18 +78,19 @@
             <p>Email</p>
           </a>
         </div>
+        <div></div>
         <div>
           <a class="contact-info" href="https://www.instagram.com/paradise.trees/">
             <img src="<?php echo($DIR);?>/images/instagram.svg"/>
             <p>Instagram</p>
           </a>
         </div>
-        <div>
+        <!--<div>
           <a class="contact-info" href="http://lugocorp.net">
             <img src="<?php echo($DIR);?>/images/facebook.svg"/>
             <p>Facebook</p>
           </a>
-        </div>
+        </div>-->
       </div>
     </div>
     <?php include($DIR."/components/footer.php");?>
