@@ -17,7 +17,7 @@
     <button class="entity" id="button-company" onclick="switch_page('company-')">Company</button>
   </div>-->
 
-  <div class="page" id="individual-phone_hours"><p>How many hours do you spend on your <b>phone</b> in a day?</p><div class="option"><input type="radio" name="phone_hours" value="0" id="phone_hours-0" onclick="set_value('phone_hours',1.5,'individual-phone_years')"/><label for="phone_hours-0">1 - 2 hours</label></div><div class="option"><input type="radio" name="phone_hours" value="1" id="phone_hours-1" onclick="set_value('phone_hours',2.5,'individual-phone_years')"/><label for="phone_hours-1">2 - 3 hours</label></div><div class="option"><input type="radio" name="phone_hours" value="2" id="phone_hours-2" onclick="set_value('phone_hours',3.5,'individual-phone_years')"/><label for="phone_hours-2">3 - 4 hours</label></div><div class="progress"><div class="active"></div><div></div></div></div><div class="page" id="individual-phone_years"><p>How many <b>years</b> have you had your phone for?</p><div class="option"><input type="radio" name="phone_years" value="0" id="phone_years-0" onclick="set_value('phone_years',values['phone_hours']*1.5*2799.55,'individual-results');calculate('individual-results-text')"/><label for="phone_years-0">1 - 2 years</label></div><div class="option"><input type="radio" name="phone_years" value="1" id="phone_years-1" onclick="set_value('phone_years',values['phone_hours']*2.5*2799.55,'individual-results');calculate('individual-results-text')"/><label for="phone_years-1">2 - 3 years</label></div><div class="option"><input type="radio" name="phone_years" value="2" id="phone_years-2" onclick="set_value('phone_years',values['phone_hours']*3.5*2799.55,'individual-results');calculate('individual-results-text')"/><label for="phone_years-2">3 - 4 years</label></div><div class="progress"><div></div><div class="active"></div></div></div><div class="page" id="individual-results"><p><span class="bold">Results:</span></p><p id="individual-results-text"></p></div>
+  <div class="page" id="individual-phone_hours"><p>How many hours do you spend on your <b>phone</b> in a day?</p><div class="option"><input type="radio" name="phone_hours" value="0" id="phone_hours-0" onclick="set_value('phone_hours',1.5,'individual-phone_years')"/><label for="phone_hours-0">1 - 2 hours</label></div><div class="option"><input type="radio" name="phone_hours" value="1" id="phone_hours-1" onclick="set_value('phone_hours',2.5,'individual-phone_years')"/><label for="phone_hours-1">2 - 3 hours</label></div><div class="option"><input type="radio" name="phone_hours" value="2" id="phone_hours-2" onclick="set_value('phone_hours',3.5,'individual-phone_years')"/><label for="phone_hours-2">3 - 4 hours</label></div><div class="progress"><div class="active"></div><div></div></div></div><div class="page" id="individual-phone_years"><p>How many <b>years</b> have you had your phone for?</p><div class="option"><input type="radio" name="phone_years" value="0" id="phone_years-0" onclick="set_value('phone_years',values['phone_hours']*1.5*2799.55,'individual-results');calculate('individual')"/><label for="phone_years-0">1 - 2 years</label></div><div class="option"><input type="radio" name="phone_years" value="1" id="phone_years-1" onclick="set_value('phone_years',values['phone_hours']*2.5*2799.55,'individual-results');calculate('individual')"/><label for="phone_years-1">2 - 3 years</label></div><div class="option"><input type="radio" name="phone_years" value="2" id="phone_years-2" onclick="set_value('phone_years',values['phone_hours']*3.5*2799.55,'individual-results');calculate('individual')"/><label for="phone_years-2">3 - 4 years</label></div><div class="progress"><div></div><div class="active"></div></div></div><div class="page" id="individual-results"><p>On a yearly basis from just using your smartphone, you contribute to <span id="individual-results-tons"></span> tons of CO<sub>2</sub> which equates to $<span id="individual-results-dollars"></span> at $5 a ton</p><p>In order to offset these emissions, you need to plant <span id="individual-results-trees"></span> trees</p><p>Click Plant Trees below to address these emissions</p></div>
   <!-- Footer -->
   <div class="footer">
     Developed by <a href="http://lugocorp.net">LugoCorp</a>
@@ -157,11 +157,13 @@ function set_value(k,v,id){
     switch_page(id);
   },250);
 }
-function calculate(id){
+function calculate(base){
   let lbs=round(Object.keys(values).map(x => values[x]).reduce((x,y) => x+y));
   let tons=round(lbs/2000);
-  let dollars=round(tons*13);
-  document.getElementById(id).innerHTML=`${lbs} pounds C0<sub>2</sub><br>${tons} tons C0<sub>2</sub><br>$${dollars} to offset`;
+  let dollars=round(tons*5);
+  document.getElementById(`${base}-results-tons`).innerHTML=tons;
+  document.getElementById(`${base}-results-dollars`).innerHTML=dollars;
+  document.getElementById(`${base}-results-trees`).innerHTML=Math.ceil(dollars);
 }
 function round(x){
   return Math.floor(x*100)/100;

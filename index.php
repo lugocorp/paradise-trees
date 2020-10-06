@@ -60,13 +60,24 @@
       <p>
         Each tree you plant and even the slightest support towards the 'Rainbow' project creates more than just a positive environmental impact and cleaning of your carbon footprint. Any support significantly increases job opportunities for local villagers which leads to an improvement of their overall community. They learn how to plant, protect trees, and even get involved in our sustainable agriculture education; All of which directly improve their communities and future. That is why your impact reaches all throughout Madagascar!
       </p>
-      <div class="buttons">
-        <div><a class="offset" href="donate#trees">Buy a Tree</a></div>
-        <div><a class="offset" href="donate#rainbow">Support Rainbow</a></div>
+      <div class="buttons single">
+        <div><a class="offset" href="donate">Plant a Tree</a></div>
       </div>
     </div>
-    <div class="section green">
-      <h1>Gallery</h1>
+    <div class="section green gallery">
+      <div class="not-background">
+        <h1>Gallery</h1>
+        <p>
+          We hope you enjoy these select from our efforts in Madagascar
+        </p>
+        <div class="thumbnails">
+          <div style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
+          <div style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
+          <div style="background-image:url('<?php echo($DIR);?>/images/hills.jpg')"></div>
+          <div style="background-image:url('<?php echo($DIR);?>/images/hills.jpg')"></div>
+        </div>
+      </div>
+      <div class="background" style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
     </div>
     <div class="section contact">
       <h1 class="center">Contact</h1>
@@ -94,4 +105,12 @@
     <?php include("components/footer.php");?>
   </div>
 </body>
+<script>
+  let thumbnails=document.querySelectorAll(".gallery .thumbnails > div");
+  for(var a=0;a<thumbnails.length;a++){
+    thumbnails[a].onclick=function(){
+      document.querySelector(".gallery .background").style["background-image"]=this.style["background-image"];
+    }
+  }
+</script>
 </html>
