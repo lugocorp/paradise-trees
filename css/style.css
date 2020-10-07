@@ -1,10 +1,10 @@
 /* General */
 :root{
-  --dark-leaf:#94d474;
+  --leaf-highlight:#94d474;
   --white:#ffffff;
   --beige:#F5F0DD;
-  --coal: #363636;
-  --leaf: #AAF584;
+  --coal:#363636;
+  --leaf:#006738;/*#AAF584;*/
 }
 body{
   font-family:NotoSansJP;
@@ -46,9 +46,7 @@ h1{
 }
 .green{
   background-color:var(--leaf);
-}
-.beige{
-  background-color:var(--beige);
+  color:var(--white);
 }
 @font-face{
   font-family:"NotoSansJP";
@@ -156,7 +154,7 @@ h1{
   cursor:pointer;
 }
 .buttons .offset:hover{
-  background-color:var(--dark-leaf);
+  background-color:var(--leaf-highlight);
 }
 @media only screen and (max-width:1000px){
   .buttons{
@@ -261,10 +259,10 @@ h1{
 }
 .gallery .thumbnails > div{
   transition:background-color 0.1s ease;
+  background-position:center center;
   background-color:rgba(0,0,0,0.5);
   background-blend-mode:multiply;
   border:solid 1px var(--white);
-  background-position:center;
   transform:translateX(-50%);
   background-size:cover;
   margin-bottom:50px;
@@ -285,6 +283,9 @@ h1{
 @media only screen and (max-width:750px){
   .gallery{
     grid-template-columns:100%;
+  }
+  .gallery .background{
+    min-height:300px;
   }
 }
 
@@ -325,7 +326,7 @@ h1{
 }
 .footer a{
   text-decoration:none;
-  color:var(--leaf);
+  color:#AAF584;
 }
 .footer a:hover{
   text-decoration:underline;

@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,20 +9,61 @@
     <h1>Carbon Calculator</h1>
   </div>
 
-  <!-- Entity select page -->
-  <!--<div class="page" id="entity-select">
-    <p>What type of entity are you?</p>
-    <button class="entity" id="button-individual" onclick="switch_page('individual-')">Individual</button>
-    <button class="entity" id="button-company" onclick="switch_page('company-')">Company</button>
-  </div>-->
+  <!-- Size page -->
+  <div class="page">
+    <p>How many employees are in your company?</p>
+    <div class="option">
+      <input type="radio" name="size" id="size_1" onclick="move_on('size',50)"/>
+      <label for="size_1">Small company (9-100 employees)</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="size" id="size_2" onclick="move_on('size',500)"/>
+      <label for="size_2">Medium-sized company (100-999 employees)</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="size" id="size_3" onclick="move_on('size',1000)"/>
+      <label for="size_3">Large-scale company (Over 1000 employees)</label>
+    </div>
+    <div class="progress"><div class="active"></div><div></div></div>  </div>
 
-  <div class="page" id="company-size"><p>What is the <b>size</b> of your company?</p><div class="option"><input type="radio" name="size" value="0" id="size-0" onclick="set_value('size',50,'company-heating')"/><label for="size-0">Small company (9-100 employees)</label></div><div class="option"><input type="radio" name="size" value="1" id="size-1" onclick="set_value('size',500,'company-heating')"/><label for="size-1">Medium-sized company (100-999 employees)</label></div><div class="option"><input type="radio" name="size" value="2" id="size-2" onclick="set_value('size',1000,'company-heating')"/><label for="size-2">Large-scale company (Over 1000 employees)</label></div><div class="progress"><div class="active"></div><div></div></div></div><div class="page" id="company-heating"><p>How much <b>electricity</b> does your company use yearly?</p><div class="option"><input type="radio" name="heating" value="0" id="heating-0" onclick="set_value('heating',10000*11.71,'company-results');calculate('company')"/><label for="heating-0">5,000 - 15,000 kWh</label></div><div class="option"><input type="radio" name="heating" value="1" id="heating-1" onclick="set_value('heating',20000*11.71,'company-results');calculate('company')"/><label for="heating-1">15,000 - 25,000 kWh</label></div><div class="option"><input type="radio" name="heating" value="2" id="heating-2" onclick="set_value('heating',35000*11.71,'company-results');calculate('company')"/><label for="heating-2">25,000 - 50,000 CCF</label></div><div class="progress"><div></div><div class="active"></div></div></div><div class="page" id="company-results"><p>On a yearly basis, your company emits <span id="company-results-tons"></span> tons CO<sub>2</sub> which equates to $<span id="company-results-dollars"></span> at $10 a ton</p><p>In order to offset these emissions, you need to plant <span id="company-results-trees"></span> trees</p><p>Click Plant Trees below to address these emissions</p></div>
+  <!-- electricity page -->
+  <div class="page">
+    <p>How much <b>electricity</b> does your company use yearly?</p>
+    <div class="option">
+      <input type="radio" name="electricity" id="electricity_1" onclick="move_on('electricity',10000)"/>
+      <label for="electricity_1">5,000 - 15,000 kWh</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="electricity" id="electricity_2" onclick="move_on('electricity',20000)"/>
+      <label for="electricity_2">15,000 - 25,000 kWh</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="electricity" id="electricity_3" onclick="move_on('electricity',35000)"/>
+      <label for="electricity_3">25,000 - 50,000 kWh</label>
+    </div>
+    <div class="option">
+      <button onclick="move_on('electricity','text_electricity')">Enter</button>
+      <input type="text" placeholder="Some other kWh" id="text_electricity"/>
+    </div>
+    <div class="progress"><div></div><div class="active"></div></div>  </div>
+
+  <!-- Results page -->
+  <div class="page" id="results">
+    <p>On a yearly basis, your company emits <span id="results-tons"></span> tons of CO<sub>2</sub> which equates to $<span id="results-dollars"></span> at $10 a ton</p>
+    <p>In order to offset these emissions, you need to plant <span id="results-trees"></span> trees</p>
+    <p>Click Plant Trees below to address these emissions</p>
+  </div>
+
   <!-- Footer -->
   <div class="footer">
     Developed by <a href="http://lugocorp.net">LugoCorp</a>
   </div>
 
 </body>
+<script>
+  let getCarbon = () => (values["electricity"]*11.71)+(values["size"]*4.4);
+  let getDollars = x => x*10;
+</script>
 <style type="text/css">
 
 :root{
@@ -93,9 +133,6 @@ body{
 .page p .bold{
   font-weight:bold;
 }
-body div.page{
-  display:block;
-}
 .entity{
   background-color:var(--main);
   width:calc(100% - 30px);
@@ -122,6 +159,19 @@ body div.page{
   margin:15px 0;
   left:15px;
 }
+.option input[type=text]{
+  max-width:calc(100% - 200px);
+  border-radius:0;
+  border:none;
+  width:100%;
+}
+.option button{
+  background-color:var(--main);
+  border-radius:15px;
+  font-weight:bold;
+  padding:5px 15px;
+  border:none;
+}
 
 /* Footer */
 .footer{
@@ -142,32 +192,34 @@ body div.page{
 
 </style>
 <script type="text/javascript">
-
 let values={};
 
-function switch_page(id){
-  let pages=document.getElementsByClassName("page");
+function move_on(k,v){
+  if(typeof(v)=="string"){
+    var text=document.getElementById(v);
+    v=parseInt(text.value) || 0;
+  }
+  values[k]=v;
+  let pages=document.querySelectorAll(".page");
   for(var a=0;a<pages.length;a++){
-    pages[a].style.display=(pages[a].id==id)?"block":"none";
+    if(pages[a].style.display=="block"){
+      pages[a].style.display="none";
+      pages[a+1].style.display="block";
+      if(a+1==pages.length-1){
+        let lbs=getCarbon();
+        let tons=Math.round((lbs/2000)*100)/100;
+        let dollars=Math.round(getDollars(tons)*100)/100;
+        let trees=Math.ceil(dollars);
+        document.getElementById("results-tons").innerHTML=tons;
+        document.getElementById("results-dollars").innerHTML=dollars;
+        document.getElementById("results-trees").innerHTML=trees;
+      }
+      break;
+    }
   }
 }
-function set_value(k,v,id){
-  values[k]=v;
-  setTimeout(function(){
-    switch_page(id);
-  },250);
-}
-function calculate(base){
-  let lbs=round(Object.keys(values).map(x => values[x]).reduce((x,y) => x+y));
-  let tons=round(lbs/2000);
-  let dollars=round(tons*10);
-  document.getElementById(`${base}-results-tons`).innerHTML=tons;
-  document.getElementById(`${base}-results-dollars`).innerHTML=dollars;
-  document.getElementById(`${base}-results-trees`).innerHTML=Math.ceil(dollars);
-}
-function round(x){
-  return Math.floor(x*100)/100;
-}
+
+document.querySelector(".page").style.display="block";
 
 </script>
 </html>
