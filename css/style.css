@@ -1,10 +1,9 @@
 /* General */
 :root{
-  --leaf-highlight:#94d474;
+  --highlight:#ffd96e;
   --white:#ffffff;
-  --beige:#F5F0DD;
   --coal:#363636;
-  --leaf:#006738;/*#AAF584;*/
+  --main:#deb540;
 }
 body{
   font-family:NotoSansJP;
@@ -45,7 +44,7 @@ h1{
   padding:25px 10%;
 }
 .green{
-  background-color:var(--leaf);
+  background-color:var(--main);
   color:var(--white);
 }
 @font-face{
@@ -105,7 +104,8 @@ h1{
   margin:0;
 }
 .splash img{
-  border-radius:50%;
+  /*border-radius:50%;*/
+  height:220px;
 }
 .mobile-splash{
   background-color:rgba(0,0,0,.3);
@@ -120,8 +120,11 @@ h1{
   display:none;
 }
 .mobile-splash img{
+  transform:translateY(-50%);
+  position:relative;
   border-radius:50%;
   width:120px;
+  top:50%;
 }
 @media only screen and (max-width:1000px){
   .mobile-splash{
@@ -144,7 +147,7 @@ h1{
 }
 .buttons .offset{
   transition:background-color 0.1s ease;
-  background-color:var(--leaf);
+  background-color:var(--main);
   text-decoration:none;
   display:inline-block;
   color:var(--white);
@@ -154,7 +157,7 @@ h1{
   cursor:pointer;
 }
 .buttons .offset:hover{
-  background-color:var(--leaf-highlight);
+  background-color:var(--highlight);
 }
 @media only screen and (max-width:1000px){
   .buttons{
@@ -326,7 +329,7 @@ h1{
 }
 .footer a{
   text-decoration:none;
-  color:#AAF584;
+  color:var(--highlight);
 }
 .footer a:hover{
   text-decoration:underline;

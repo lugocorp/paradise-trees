@@ -24,7 +24,7 @@
       <input type="radio" name="size" id="size_3" onclick="move_on('size',1000)"/>
       <label for="size_3">Large-scale company (Over 1000 employees)</label>
     </div>
-    <div class="progress"><div class="active"></div><div></div></div>  </div>
+    <div class="progress"><div class="active"></div><div></div><div></div></div>  </div>
 
   <!-- electricity page -->
   <div class="page">
@@ -45,7 +45,16 @@
       <button onclick="move_on('electricity','text_electricity')">Enter</button>
       <input type="text" placeholder="Some other kWh" id="text_electricity"/>
     </div>
-    <div class="progress"><div></div><div class="active"></div></div>  </div>
+    <div class="progress"><div></div><div class="active"></div><div></div></div>  </div>
+
+  <!-- airline page -->
+  <div class="page">
+    <p>How many miles does your company use through <b>airplane flights</b> yearly?</p>
+    <div class="option">
+      <button onclick="move_on('airline','text_airline')">Enter</button>
+      <input type="text" placeholder="Miles" id="text_airline"/>
+    </div>
+    <div class="progress"><div></div><div></div><div class="active"></div></div>  </div>
 
   <!-- Results page -->
   <div class="page" id="results">
@@ -61,15 +70,15 @@
 
 </body>
 <script>
-  let getCarbon = () => (values["electricity"]*11.71)+(values["size"]*4.4);
+  let getCarbon = () => (values["electricity"]*0.408)+(values["size"]*4.4)+(values["airline"]*0.947);
   let getDollars = x => x*10;
 </script>
 <style type="text/css">
 
 :root{
   --white:#ffffff;
-  --coal: #363636;
-  --main: #AAF584;
+  --coal:#363636;
+  --main:#deb540;
   position:relative;
   height:100%;
 }

@@ -10,7 +10,7 @@
     <!-- Splash -->
     <div class="splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <div class="fade-in">
-        <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
+        <img src="<?php echo($DIR);?>/images/logo.png"/>
         <h1>PARADISE TREES</h1>
         <p>
           Clean Your Environmental Impact by Supporting Green Projects in Madagascar
@@ -19,7 +19,7 @@
     </div>
     <div class="mobile-splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
       <div class="fade-in">
-        <img src="<?php echo($DIR);?>/images/paradise-icon.jpg"/>
+        <img src="<?php echo($DIR);?>/images/logo.png"/>
       </div>
       <div class="fade-in">
         <h1>PARADISE TREES</h1>
@@ -72,9 +72,10 @@
         </p>
         <div class="thumbnails">
           <div style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
-          <div style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
           <div style="background-image:url('<?php echo($DIR);?>/images/hills.jpg')"></div>
-          <div style="background-image:url('<?php echo($DIR);?>/images/hills.jpg')"></div>
+          <div style="background-image:url('<?php echo($DIR);?>/images/children.jpg')"></div>
+          <div style="background-image:url('<?php echo($DIR);?>/images/skies.jpg')"></div>
+          <div style="background-image:url('<?php echo($DIR);?>/images/smile.jpg')"></div>
         </div>
       </div>
       <div class="background" style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
