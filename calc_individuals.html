@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <base target="_parent"/>
+</head>
+<body>
+  <div class="header">
+    <h1>Carbon Calculator</h1>
+  </div>
+
+  <!-- Phone hours page -->
+  <div class="page">
+    <p>How many hours do you spend on your <b>phone</b> in a day?</p>
+    <div class="option">
+      <input type="radio" name="phone_hours" id="phone_hours_1" onclick="move_on('phone_hours',1.5)"/>
+      <label for="phone_hours_1">1 - 2 hours</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="phone_hours" id="phone_hours_2" onclick="move_on('phone_hours',2.5)"/>
+      <label for="phone_hours_2">2 - 3 hours</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="phone_hours" id="phone_hours_3" onclick="move_on('phone_hours',3.5)"/>
+      <label for="phone_hours_3">3 - 4 hours</label>
+    </div>
+    <div class="option">
+      <button onclick="move_on('phone_hours','text_phone_hours')">Enter</button>
+      <input type="text" placeholder="Some other hours" id="text_phone_hours"/>
+    </div>
+    <div class="progress"><div class="active"></div><div></div></div>  </div>
+
+  <!-- Phone years page -->
+  <div class="page">
+    <p>How many <b>years</b> have you had your phone for?</p>
+    <div class="option">
+      <input type="radio" name="phone_years" id="phone_years_1" onclick="move_on('phone_years',1.5)"/>
+      <label for="phone_years_1">1 - 2 years</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="phone_years" id="phone_years_2" onclick="move_on('phone_years',2.5)"/>
+      <label for="phone_years_2">2 - 3 years</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="phone_years" id="phone_years_3" onclick="move_on('phone_years',3.5)"/>
+      <label for="phone_years_3">3 - 4 years</label>
+    </div>
+    <div class="option">
+      <button onclick="move_on('phone_years','text_phone_years')">Enter</button>
+      <input type="text" placeholder="Some other years" id="text_phone_years"/>
+    </div>
+    <div class="progress"><div></div><div class="active"></div></div>  </div>
+
+  <!-- Results page -->
+  <div class="page" id="results">
+    <p>On a yearly basis from just using your smartphone, you contribute to <span id="results-tons"></span> tons of CO<sub>2</sub> which equates to $<span id="results-dollars"></span> at $5 a ton</p>
+    <p>In order to offset these emissions, you need to plant <span id="results-trees"></span> trees</p>
+    <p>Click Plant Trees below to address these emissions</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Developed by <a href="http://lugocorp.net">LugoCorp</a>
+  </div>
+
+</body>
+<script>
+  let getCarbon = () => values["phone_hours"]*values["phone_years"]*2799.55;
+  let getDollars = x => x*5;
+</script>
+<style type="text/css">
+
+:root{
+  --white:#ffffff;
+  --coal:#363636;
+  --main:#deb540;
+  position:relative;
+  height:100%;
+}
+body{
+  background-color:var(--white);
+  font-family:sans-serif;
+  position:relative;
+  color:var(--coal);
+  overflow:hidden;
+  height:100%;
+  padding:0;
+  margin:0;
+}
+
+/* Header */
+.header{
+  background-color:var(--main);
+  color:var(--white);
+  margin-bottom:25px;
+  padding:10px 25px;
+}
+.header h1{
+  text-align:center;
+  font-size:35px;
+  margin:0;
+}
+
+/* Progress bar */
+.progress{
+  transform:translateX(-50%);
+  position:absolute;
+  bottom:10px;
+  left:50%;
+}
+.progress > div{
+  background-color:var(--coal);
+  border:solid 2px var(--coal);
+  display:inline-block;
+  border-radius:7px;
+  position:relative;
+  margin:0 25px;
+  height:10px;
+  width:10px;
+}
+.progress .active{
+  background-color:var(--main);
+}
+
+/* Quiz */
+.page{
+  height:calc(100% - 110px);
+  position:relative;
+  display:none;
+}
+.page p{
+  text-align:center;
+  padding-top:35px;
+  margin:45px 12%;
+  margin-top:0;
+}
+.page p .bold{
+  font-weight:bold;
+}
+.entity{
+  background-color:var(--main);
+  width:calc(100% - 30px);
+  color:var(--white);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+  font-size:25px;
+  padding:15px 0;
+  margin:15px 0;
+  display:block;
+  border:none;
+  left:15px;
+}
+.entity:hover{
+  cursor:pointer;
+}
+.option{
+  border:solid 2px var(--main);
+  width:calc(100% - 70px);
+  position:relative;
+  font-weight:bold;
+  padding:5px 15px;
+  margin:15px 0;
+  left:15px;
+}
+.option input[type=text]{
+  max-width:calc(100% - 200px);
+  border-radius:0;
+  border:none;
+  width:100%;
+}
+.option button{
+  background-color:var(--main);
+  border-radius:15px;
+  font-weight:bold;
+  padding:5px 15px;
+  border:none;
+}
+
+/* Footer */
+.footer{
+  background-color:var(--coal);
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  font-size:15px;
+  padding:5px 0;
+}
+.footer a{
+  text-decoration:none;
+  color:var(--main);
+}
+.footer a:hover{
+  text-decoration:underline;
+}
+
+</style>
+<script type="text/javascript">
+let values={};
+
+function move_on(k,v){
+  if(typeof(v)=="string"){
+    var text=document.getElementById(v);
+    v=parseInt(text.value) || 0;
+  }
+  values[k]=v;
+  let pages=document.querySelectorAll(".page");
+  for(var a=0;a<pages.length;a++){
+    if(pages[a].style.display=="block"){
+      pages[a].style.display="none";
+      pages[a+1].style.display="block";
+      if(a+1==pages.length-1){
+        let lbs=getCarbon();
+        let tons=Math.round((lbs/2000)*100)/100;
+        let dollars=Math.round(getDollars(tons)*100)/100;
+        let trees=Math.ceil(dollars);
+        document.getElementById("results-tons").innerHTML=tons;
+        document.getElementById("results-dollars").innerHTML=dollars;
+        document.getElementById("results-trees").innerHTML=trees;
+      }
+      break;
+    }
+  }
+}
+
+document.querySelector(".page").style.display="block";
+
+</script>
+</html>
