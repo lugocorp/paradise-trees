@@ -65,6 +65,9 @@ h1{
   .img-left{
     grid-template-columns:100%;
   }
+  p{
+    text-align:justify;
+  }
 }
 
 /* Splash */
@@ -84,55 +87,27 @@ h1{
   font-size:80px;
 }
 .splash{
-  min-height:450px;
+  padding:100px 0;
 }
 .splash > div{
-  transform:translateY(-50%);
   text-align:center;
-  position:absolute;
-  width:100%;
-  top:50%;
-  left:0;
+  position:relative;
 }
 .splash h1{
-  transform:translateY(50%);
   display:inline-block;
-  padding-left:25px;
   position:relative;
   font-size:80px;
-  top:-100px;
+  margin:25px 0;
+}
+.splash h2{
+  font-size:40px;
   margin:0;
 }
-.splash img{
-  /*border-radius:50%;*/
-  height:220px;
-}
-.mobile-splash{
-  background-color:rgba(0,0,0,.3);
-  background-blend-mode:multiply;
-  grid-template-columns:40% 60%;
-  background-position-y:0%;
-  background-size:cover;
-  color:var(--white);
-  text-align:center;
-  position:relative;
-  padding:25px 0;
-  display:none;
-}
-.mobile-splash img{
-  transform:translateY(-50%);
-  position:relative;
-  border-radius:50%;
-  width:120px;
-  top:50%;
-}
-@media only screen and (max-width:1000px){
-  .mobile-splash{
-    display:grid;
-  }
-  .splash{
-    display:none;
-  }
+.splash > img{
+  position:absolute;
+  height:80px;
+  left:10px;
+  top:10px;
 }
 
 /* Buttons */
