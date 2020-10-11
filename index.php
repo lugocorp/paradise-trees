@@ -9,28 +9,21 @@
 
     <!-- Splash -->
     <div class="splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
+      <img src="<?php echo($DIR);?>/images/logo.png"/>
       <div class="fade-in">
-        <img src="<?php echo($DIR);?>/images/logo.png"/>
-        <h1>PARADISE TREES</h1>
+        <h2>Welcome to</h2>
+        <h1>Paradise Trees</h1>
         <p>
-          Clean Your Environmental Impact by Supporting Green Projects in Madagascar
-        </p>
-      </div>
-    </div>
-    <div class="mobile-splash" style="background-image:url('<?php echo($DIR);?>/images/madagascar1.jpg')">
-      <div class="fade-in">
-        <img src="<?php echo($DIR);?>/images/logo.png"/>
-      </div>
-      <div class="fade-in">
-        <h1>PARADISE TREES</h1>
-        <p>
-          Clean Your Environmental Impact by Supporting Green Projects in Madagascar
+          Where you can clean your environmental impact by planting trees throughout projects in Madagascar
         </p>
       </div>
     </div>
 
     <!-- Sections -->
     <div class="section thin">
+      <h2 class="center">
+        Plant to Clean, Plant to Protect, Plant to Support
+      </h2>
       <p>
         At Paradise Trees we believe addressing your environmental impact should be simple. That's why we have created this platform which provides direct access to emissions reducing projects throughout Madagascar. As an individual or company, you can follow our simple two-step process which allows you to; 1) Quantify your environmental impact in terms of a carbon footprint and 2) Offset that footprint through tree planting or fire protecting projects.
       </p>
@@ -86,19 +79,19 @@
         <div>
           <a class="contact-info" href="mailto:1borna@gmail.com">
             <img src="images/mail.svg"/>
-            <p>Email</p>
+            <div>Email</div>
           </a>
         </div>
         <div>
           <a class="contact-info" href="https://www.instagram.com/paradise.trees/">
             <img src="images/instagram.svg"/>
-            <p>Instagram</p>
+            <div>Instagram</div>
           </a>
         </div>
         <div>
           <a class="contact-info" href="http://lugocorp.net">
             <img src="images/facebook.svg"/>
-            <p>Facebook</p>
+            <div>Facebook</div>
           </a>
         </div>
       </div>
