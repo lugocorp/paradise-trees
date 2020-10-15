@@ -125,6 +125,11 @@ h1{
   .splash h2{
     font-size:26px;
   }
+  .splash > img{
+    transform:translateX(-50%);
+    height:60px;
+    left:50%;
+  }
 }
 
 /* Buttons */
@@ -271,6 +276,9 @@ h1{
 .gallery .thumbnails > div:hover{
   background-color:rgba(0,0,0,0);
 }
+.gallery .thumbnails > div *{
+  display:none;
+}
 @media only screen and (max-width:1000px){
   .gallery .thumbnails{
     grid-template-columns:50% 50%;
@@ -282,6 +290,9 @@ h1{
   }
   .gallery .background{
     min-height:300px;
+  }
+  .gallery .desc *{
+    text-align:center;
   }
 }
 
