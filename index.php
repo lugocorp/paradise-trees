@@ -61,7 +61,7 @@
       <div class="not-background">
         <h1>Gallery</h1>
         <p>
-          We hope you enjoy these select from our efforts in Madagascar
+          We hope you enjoy these select photos from our efforts in Madagascar
         </p>
         <div class="thumbnails">
           <div style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
@@ -99,12 +99,5 @@
     <?php include("components/footer.php");?>
   </div>
 </body>
-<script>
-  let thumbnails=document.querySelectorAll(".gallery .thumbnails > div");
-  for(var a=0;a<thumbnails.length;a++){
-    thumbnails[a].onclick=function(){
-      document.querySelector(".gallery .background").style["background-image"]=this.style["background-image"];
-    }
-  }
-</script>
+<?php include("js/gallery.php");?>
 </html>
