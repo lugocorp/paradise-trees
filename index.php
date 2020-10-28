@@ -64,11 +64,11 @@
           We hope you enjoy these select photos from our efforts in Madagascar
         </p>
         <div class="thumbnails">
-          <div style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
-          <div style="background-image:url('<?php echo($DIR);?>/images/hills.jpg')"></div>
-          <div style="background-image:url('<?php echo($DIR);?>/images/children.jpg')"></div>
-          <div style="background-image:url('<?php echo($DIR);?>/images/skies.jpg')"></div>
-          <div style="background-image:url('<?php echo($DIR);?>/images/smile.jpg')"></div>
+          <div class="icon" style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
+          <div class="icon" style="background-image:url('<?php echo($DIR);?>/images/hills.jpg')"></div>
+          <div class="icon" style="background-image:url('<?php echo($DIR);?>/images/children.jpg')"></div>
+          <div class="icon" style="background-image:url('<?php echo($DIR);?>/images/skies.jpg')"></div>
+          <div class="icon" style="background-image:url('<?php echo($DIR);?>/images/smile.jpg')"></div>
         </div>
       </div>
       <div class="background" style="background-image:url('<?php echo($DIR);?>/images/gathering.jpg')"></div>
