@@ -201,7 +201,7 @@ h1{
 }
 
 /* Trees Grid */
-.trees-grid{
+/*.trees-grid{
   grid-template-columns:calc(33% - 5px) calc(34% - 10px) calc(33% - 5px);
   grid-column-gap:10px;
   display:grid;
@@ -237,7 +237,7 @@ h1{
   .trees-grid{
     grid-template-columns:100%;
   }
-}
+}*/
 
 /* Gallery */
 .gallery{
@@ -247,6 +247,9 @@ h1{
 }
 .gallery .not-background{
   padding:25px 10%;
+}
+.gallery .desc{
+  text-align:center;
 }
 .gallery .background{
   background-size:cover;
@@ -258,7 +261,7 @@ h1{
   text-align:center;
   display:grid;
 }
-.gallery .thumbnails > div{
+.gallery .thumbnails .icon{
   transition:background-color 0.1s ease;
   background-position:center center;
   background-color:rgba(0,0,0,0.5);
@@ -266,18 +269,24 @@ h1{
   border:solid 1px var(--white);
   transform:translateX(-50%);
   background-size:cover;
-  margin-bottom:50px;
   position:relative;
   cursor:pointer;
   height:100px;
   width:100px;
   left:50%;
 }
-.gallery .thumbnails > div:hover{
+.gallery .thumbnails .icon:hover{
   background-color:rgba(0,0,0,0);
 }
-.gallery .thumbnails > div *{
+.gallery .thumbnails .icon *{
   display:none;
+}
+.gallery .thumbnails > div h3{
+  margin-bottom:0;
+  margin-top:5px;
+}
+.gallery .thumbnails > div{
+  margin-bottom:50px;
 }
 @media only screen and (max-width:1000px){
   .gallery .thumbnails{
@@ -294,6 +303,22 @@ h1{
   .gallery .desc *{
     text-align:center;
   }
+}
+
+/* PayPal link */
+.paypal{
+  text-align:center;
+  display:block;
+}
+.paypal img{
+  transition:background-color 0.1s ease;
+  background-color:var(--main);
+  border-radius:25px;
+  padding:5px 25px;
+  height:50px;
+}
+.paypal img:hover{
+  background-color:var(--highlight);
 }
 
 /* Contact */

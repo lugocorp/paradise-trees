@@ -68,11 +68,11 @@
           We hope you enjoy these select photos from our efforts in Madagascar
         </p>
         <div class="thumbnails">
-          <div style="background-image:url('./images/gathering.jpg')"></div>
-          <div style="background-image:url('./images/hills.jpg')"></div>
-          <div style="background-image:url('./images/children.jpg')"></div>
-          <div style="background-image:url('./images/skies.jpg')"></div>
-          <div style="background-image:url('./images/smile.jpg')"></div>
+          <div class="icon" style="background-image:url('./images/gathering.jpg')"></div>
+          <div class="icon" style="background-image:url('./images/hills.jpg')"></div>
+          <div class="icon" style="background-image:url('./images/children.jpg')"></div>
+          <div class="icon" style="background-image:url('./images/skies.jpg')"></div>
+          <div class="icon" style="background-image:url('./images/smile.jpg')"></div>
         </div>
       </div>
       <div class="background" style="background-image:url('./images/gathering.jpg')"></div>
@@ -106,14 +106,16 @@
   </div>
 </body>
 <script>
-  let thumbnails=document.querySelectorAll(".gallery .thumbnails > div");
+  let thumbnails=document.querySelectorAll(".gallery .thumbnails .icon");
   for(var a=0;a<thumbnails.length;a++){
     thumbnails[a].onclick=function(){
       let target=document.querySelector(".gallery .background");
       target.style["background-image"]=this.style["background-image"];
       if(this.children.length){
-        let desc=this.children[0].innerHTML;
-        document.querySelector(".gallery .desc").innerHTML=desc;
+        let title=this.children[0].querySelector(".title");
+        let content=this.children[0].querySelector(".content");
+        document.querySelector(".gallery .desc.title").innerHTML=title.outerHTML;
+        document.querySelector(".gallery .desc.content").innerHTML=content.outerHTML;
       }
     }
   }
