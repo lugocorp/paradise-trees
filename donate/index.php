@@ -95,10 +95,10 @@
         <div class="desc content">
           <p>Good for soil-erosion protection and stabilising river banks</p>
         </div>
-        <a class="paypal" href="http://lugocorp.net">
-          <img src="<?php echo($DIR);?>/images/paypal.png"/>
-        </a>
       </div>
+    </div>
+    <div class="center">
+      <?php include("../components/paypal.php");?>
     </div>
     <?php include("../components/footer.php");?>
   </div>

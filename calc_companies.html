@@ -218,7 +218,7 @@ function move_on(k,v){
         let lbs=getCarbon();
         let tons=Math.round((lbs/2000)*100)/100;
         let dollars=Math.round(getDollars(tons)*100)/100;
-        let trees=Math.ceil(dollars);
+        let trees=Math.floor(Math.ceil(dollars)/5)*5;
         document.getElementById("results-tons").innerHTML=tons;
         document.getElementById("results-dollars").innerHTML=dollars;
         document.getElementById("results-trees").innerHTML=trees;

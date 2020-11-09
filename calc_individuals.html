@@ -53,9 +53,12 @@
 
   <!-- Results page -->
   <div class="page" id="results">
-    <p>On a yearly basis from just using your smartphone, you contribute to <span id="results-tons"></span> tons of CO<sub>2</sub> which equates to $<span id="results-dollars"></span> at $5 a ton</p>
+    <!--<p>On a yearly basis from just using your smartphone, you contribute to <span id="results-tons"></span> tons of CO<sub>2</sub> which equates to $<span id="results-dollars"></span> at $5 a ton</p>
     <p>In order to offset these emissions, you need to plant <span id="results-trees"></span> trees</p>
-    <p>Click Plant Trees below to address these emissions</p>
+    <p>Click Plant Trees below to address these emissions</p>-->
+    <p>Your smartphone usage emits <span id="results-tons"></span> tons of CO<sub>2</sub> on a yearly basis. This equates to $<span id="results-dollars"></span> at $5 a ton of CO<sub>2</sub>.</p>
+    <p>In order to offset your usage, you should plant <span id="results-trees"></span> trees.</p>
+    <p>Move on to Step 2 in order to offset these emissions through planting trees.</p>
   </div>
 
   <!-- Footer -->
@@ -213,7 +216,7 @@ function move_on(k,v){
         let lbs=getCarbon();
         let tons=Math.round((lbs/2000)*100)/100;
         let dollars=Math.round(getDollars(tons)*100)/100;
-        let trees=Math.ceil(dollars);
+        let trees=Math.floor(Math.ceil(dollars)/5)*5;
         document.getElementById("results-tons").innerHTML=tons;
         document.getElementById("results-dollars").innerHTML=dollars;
         document.getElementById("results-trees").innerHTML=trees;
