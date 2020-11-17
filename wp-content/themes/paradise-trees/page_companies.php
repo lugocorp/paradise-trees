@@ -26,11 +26,11 @@
         </p>
       </div>
       <div class="calculator-wrapper">
-        <iframe src="<?php echo($DIR);?>/calculators/companies.html"></iframe>
+        <iframe src="<?php echo($DIR);?>/calculators/calc_companies.html"></iframe>
       </div>
     </div>
     <div class="section step2">
-      <h1>Step 2: Offset your emissions</h1>
+      <h1>Step 2: Offset your emissions through planting trees</h1>
       <p>
         Carbon offsets enable people and businesses to reduce their carbon footprint. Offsets represent carbon dioxide taken out of the atmosphere from another part of the world. There are several ways of offsetting a carbon footprint.
       </p>
@@ -40,9 +40,8 @@
       <p>
         It is also possible to purchase carbon credits and hold on to them. This stops people, organizations and countries from using them. Another option is to invest or donate to an organization which develops renewable and sustainable technologies.
       </p>
-      <div class="buttons">
-        <div><a class="offset" href="donate#trees">Buy a Tree</a></div>
-        <div><a class="offset" href="donate#rainbow">Support Rainbow</a></div>
+      <div class="buttons single">
+        <div><a class="offset" href="donate">Plant Trees</a></div>
       </div>
     </div>
     <?php include("components/footer.php");?>

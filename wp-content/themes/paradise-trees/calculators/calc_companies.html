@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <base target="_parent"/>
+</head>
+<body>
+  <div class="header">
+    <h1>Carbon Calculator</h1>
+  </div>
+
+  <!-- Size page -->
+  <div class="page">
+    <p>How many employees are in your company?</p>
+    <div class="option">
+      <input type="radio" name="size" id="size_1" onclick="move_on('size',50)"/>
+      <label for="size_1">Small company (9-100 employees)</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="size" id="size_2" onclick="move_on('size',500)"/>
+      <label for="size_2">Medium-sized company (100-999 employees)</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="size" id="size_3" onclick="move_on('size',1000)"/>
+      <label for="size_3">Large-scale company (Over 1000 employees)</label>
+    </div>
+    <div class="progress"><div class="active"></div><div></div><div></div></div>  </div>
+
+  <!-- electricity page -->
+  <div class="page">
+    <p>How much <b>electricity</b> does your company use yearly?</p>
+    <div class="option">
+      <input type="radio" name="electricity" id="electricity_1" onclick="move_on('electricity',10000)"/>
+      <label for="electricity_1">5,000 - 15,000 kWh</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="electricity" id="electricity_2" onclick="move_on('electricity',20000)"/>
+      <label for="electricity_2">15,000 - 25,000 kWh</label>
+    </div>
+    <div class="option">
+      <input type="radio" name="electricity" id="electricity_3" onclick="move_on('electricity',35000)"/>
+      <label for="electricity_3">25,000 - 50,000 kWh</label>
+    </div>
+    <div class="option">
+      <button onclick="move_on('electricity','text_electricity')">Enter</button>
+      <input type="text" placeholder="Some other kWh" id="text_electricity"/>
+    </div>
+    <div class="progress"><div></div><div class="active"></div><div></div></div>  </div>
+
+  <!-- airline page -->
+  <div class="page">
+    <p>How many miles does your company use through <b>airplane flights</b> yearly?</p>
+    <div class="option">
+      <button onclick="move_on('airline','text_airline')">Enter</button>
+      <input type="text" placeholder="Miles" id="text_airline"/>
+    </div>
+    <div class="progress"><div></div><div></div><div class="active"></div></div>  </div>
+
+  <!-- Results page -->
+  <div class="page" id="results">
+    <p>On a yearly basis, your company emits <span id="results-tons"></span> tons of CO<sub>2</sub> which equates to $<span id="results-dollars"></span> at $10 a ton</p>
+    <p>In order to offset these emissions, you need to plant <span id="results-trees"></span> trees</p>
+    <p>Click Plant Trees below to address these emissions</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Developed by <a href="http://lugocorp.net">LugoCorp</a>
+  </div>
+
+</body>
+<script>
+  let getCarbon = () => (values["electricity"]*0.408)+(values["size"]*4.4)+(values["airline"]*0.947);
+  let getDollars = x => x*10;
+</script>
+<style type="text/css">
+
+:root{
+  --white:#ffffff;
+  --coal:#363636;
+  --main:#deb540;
+  position:relative;
+  height:100%;
+}
+body{
+  background-color:var(--white);
+  font-family:sans-serif;
+  position:relative;
+  color:var(--coal);
+  overflow:hidden;
+  height:100%;
+  padding:0;
+  margin:0;
+}
+
+/* Header */
+.header{
+  background-color:var(--main);
+  color:var(--white);
+  margin-bottom:25px;
+  padding:10px 25px;
+}
+.header h1{
+  text-align:center;
+  font-size:35px;
+  margin:0;
+}
+
+/* Progress bar */
+.progress{
+  transform:translateX(-50%);
+  position:absolute;
+  bottom:10px;
+  left:50%;
+}
+.progress > div{
+  background-color:var(--coal);
+  border:solid 2px var(--coal);
+  display:inline-block;
+  border-radius:7px;
+  position:relative;
+  margin:0 25px;
+  height:10px;
+  width:10px;
+}
+.progress .active{
+  background-color:var(--main);
+}
+
+/* Quiz */
+.page{
+  height:calc(100% - 110px);
+  position:relative;
+  display:none;
+}
+.page p{
+  text-align:center;
+  padding-top:35px;
+  margin:45px 12%;
+  margin-top:0;
+}
+.page p .bold{
+  font-weight:bold;
+}
+.entity{
+  background-color:var(--main);
+  width:calc(100% - 30px);
+  color:var(--white);
+  text-align:center;
+  position:relative;
+  font-weight:bold;
+  font-size:25px;
+  padding:15px 0;
+  margin:15px 0;
+  display:block;
+  border:none;
+  left:15px;
+}
+.entity:hover{
+  cursor:pointer;
+}
+.option{
+  border:solid 2px var(--main);
+  width:calc(100% - 70px);
+  position:relative;
+  font-weight:bold;
+  padding:5px 15px;
+  margin:15px 0;
+  left:15px;
+}
+.option input[type=text]{
+  max-width:calc(100% - 200px);
+  border-radius:0;
+  border:none;
+  width:100%;
+}
+.option button{
+  background-color:var(--main);
+  border-radius:15px;
+  font-weight:bold;
+  padding:5px 15px;
+  border:none;
+}
+
+/* Footer */
+.footer{
+  background-color:var(--coal);
+  color:var(--white);
+  text-align:center;
+  font-weight:bold;
+  font-size:15px;
+  padding:5px 0;
+}
+.footer a{
+  text-decoration:none;
+  color:var(--main);
+}
+.footer a:hover{
+  text-decoration:underline;
+}
+
+</style>
+<script type="text/javascript">
+let values={};
+
+function move_on(k,v){
+  if(typeof(v)=="string"){
+    var text=document.getElementById(v);
+    v=parseInt(text.value) || 0;
+  }
+  values[k]=v;
+  let pages=document.querySelectorAll(".page");
+  for(var a=0;a<pages.length;a++){
+    if(pages[a].style.display=="block"){
+      pages[a].style.display="none";
+      pages[a+1].style.display="block";
+      if(a+1==pages.length-1){
+        let lbs=getCarbon();
+        let tons=Math.round((lbs/2000)*100)/100;
+        let dollars=Math.round(getDollars(tons)*100)/100;
+        let trees=Math.floor(Math.ceil(dollars)/5)*5;
+        document.getElementById("results-tons").innerHTML=tons;
+        document.getElementById("results-dollars").innerHTML=dollars;
+        document.getElementById("results-trees").innerHTML=trees;
+      }
+      break;
+    }
+  }
+}
+
+document.querySelector(".page").style.display="block";
+
+</script>
+</html>
