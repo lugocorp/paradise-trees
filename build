@@ -1,0 +1,3 @@
+#!/bin/bash
+php src/individuals.php > calc_individuals.html
+php src/companies.php > calc_companies.html
